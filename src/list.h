@@ -7,10 +7,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define LIST_EXPANSION_RATE 2
+#ifndef LIST_EXPANSION_RATE
+	#define LIST_EXPANSION_RATE 2
+#endif
 
 // Makes the list memory aligned with 16, 32 and 64 bit pointers
-#if INTPTR_MAX == INT16_MAX
+#if defined(LIST_MAX_LEN) && defined(LIST_INDEX)
+	typedef LIST_INDEX ListIndex;
+#elif INTPTR_MAX == INT16_MAX
 	#define LIST_MAX_LEN (0xFF)
 	typedef uint8_t ListIndex;
 #elif INTPTR_MAX == INT32_MAX
@@ -45,7 +49,7 @@ void list_remove(List *const list, const ListIndex index, const size_t size);
 void list_clear(List *const list);
 
 bool list_empty(const List *const list);
-bool list_eq(const List *const list, const List *const other, const size_t size);
+bool list_equal(const List *const list, const List *const other, const size_t size);
 bool list_contains(const List *const list, const void *const element, const size_t size, ListIndex *const index);
 
 #endif

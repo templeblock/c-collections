@@ -91,7 +91,7 @@ bool list_empty(const List *const list) {
 	return list->len == 0;
 }
 
-bool list_eq(const List *const list, const List *const other, const size_t size) {
+bool list_equal(const List *const list, const List *const other, const size_t size) {
 	assert(list != NULL);
 	assert(other != NULL);
 	return list->len == other->len && memcmp(list->elements, other->elements, list->len * size) == 0;

@@ -20,7 +20,7 @@ void test_list(void) {
 	}
 
 	// Verify that the list equals itself
-	assert(list_eq(&list, &list, sizeof(int)));
+	assert(list_equal(&list, &list, sizeof(int)));
 
 	// Build another list
 	List other;
