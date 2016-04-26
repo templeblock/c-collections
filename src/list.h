@@ -12,8 +12,8 @@
 #endif
 
 // Makes the list memory aligned with 16, 32 and 64 bit pointers
-#if defined(LIST_MAX_LEN) && defined(LIST_INDEX)
-	typedef LIST_INDEX ListIndex;
+#if defined(LIST_MAX_LEN) && defined(LIST_INDEX_TYPE)
+	typedef LIST_INDEX_TYPE ListIndex;
 #elif INTPTR_MAX == INT16_MAX
 	#define LIST_MAX_LEN (0xFF)
 	typedef uint8_t ListIndex;
