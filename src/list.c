@@ -20,6 +20,7 @@ void list_alloc(List *const list, const size_t size) {
 
 void list_expand(List *const list, const size_t size) {
 	assert(list != NULL);
+	assert(list->capacity < LIST_MAX_LEN);
 	list->capacity *= LIST_EXPANSION_RATE;
 	list->capacity += !list->capacity;
 	list_alloc(list, size);
@@ -100,10 +101,9 @@ bool list_contains(const List *const list, const void *const element, const size
 	assert(list != NULL);
 	assert(element != NULL);
 	for (ListIndex i = 0; i < list->len; i++) {
-		if (memcmp(list_get(list, i, size), element, size) != 0) {
-			if (index) *index = i;
-			return true;
-		}
+		if (memcmp(list_get(list, i, size), element, size) != 0) continue;
+		if (index) *index = i;
+		return true;
 	}
 	return false;
 }
