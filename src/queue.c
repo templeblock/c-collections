@@ -1,7 +1,7 @@
 #include "queue.h"
 
 void queue_init(Queue *const queue) {
-	list_init(queue, 0);
+	list_init(queue);
 }
 
 void queue_destroy(Queue *const queue) {
@@ -9,19 +9,19 @@ void queue_destroy(Queue *const queue) {
 	list_destroy(queue);
 }
 
-void queue_push(Queue *const queue, const ListEl el) {
+void queue_push(Queue *const queue, const void *const element, const size_t size) {
 	assert(queue != NULL);
-	list_append(queue, el);
+	list_append(queue, element, size);
 }
 
-ListEl queue_peek(const Queue *const queue) {
+const void *queue_peek(const Queue *const queue) {
 	assert(queue != NULL);
 	return list_first(queue);
 }
 
-void queue_pop(Queue *const queue) {
+void queue_pop(Queue *const queue, const size_t size) {
 	assert(queue != NULL);
-	list_remove(queue, 0);
+	list_remove(queue, 0, size);
 }
 
 void queue_clear(Queue *const queue) {
