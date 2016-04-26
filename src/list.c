@@ -21,14 +21,14 @@ void list_alloc(List *const list, const size_t size) {
 void list_expand(List *const list, const size_t size) {
 	assert(list != NULL);
 	assert(list->capacity < LIST_MAX_LEN);
-	list->capacity *= LIST_EXPANSION_RATE;
+	list->capacity *= LIST_ALLOCATION_RATE;
 	list->capacity += !list->capacity;
 	list_alloc(list, size);
 }
 
 void list_contract(List *const list, const size_t size) {
 	assert(list != NULL);
-	while (list->capacity && list->len <= list->capacity / (LIST_EXPANSION_RATE * LIST_EXPANSION_RATE)) list->capacity /= LIST_EXPANSION_RATE;
+	while (list->capacity && list->len <= list->capacity / (LIST_ALLOCATION_RATE * LIST_ALLOCATION_RATE)) list->capacity /= LIST_ALLOCATION_RATE;
 	list_alloc(list, size);
 }
 

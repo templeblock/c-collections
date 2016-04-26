@@ -7,8 +7,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#ifndef LIST_EXPANSION_RATE
-	#define LIST_EXPANSION_RATE 2
+#ifndef LIST_ALLOCATION_RATE
+	#define LIST_ALLOCATION_RATE 2
 #endif
 
 // Makes the list memory aligned with 16, 32 and 64 bit pointers
