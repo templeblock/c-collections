@@ -4,9 +4,9 @@
 #include <assert.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include "list.h"
+#include "array.h"
 
-typedef List Stack;
+typedef Array Stack;
 
 void stack_init(Stack *const stack);
 void stack_destroy(Stack *const stack);
@@ -14,6 +14,6 @@ void stack_push(Stack *const stack, const void *const element, const size_t size
 const void *stack_peek(const Stack *const stack, const size_t size);
 void stack_pop(Stack *const stack, const size_t size);
 void stack_clear(Stack *const stack);
-bool stack_empty(Stack *const stack);
+bool stack_is_empty(Stack *const stack);
 
 #endif

@@ -2,9 +2,9 @@
 #define SET_H
 
 #include <stdint.h>
-#include "list.h"
+#include "array.h"
 
-typedef List Set;
+typedef Array Set;
 
 void set_init(Set *const set);
 void set_destroy(Set *const set);
