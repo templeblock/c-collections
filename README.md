@@ -1,3 +1,3 @@
-# Simple C Collections
+# C Collections
 
-A fast, efficient, and simple implmentation of dynamic lists in C. The lists can contain any data type because the size of list elements are passed as parameters.
+A fast, efficient, and simple implmentation of dynamic arrays in C. The arrays can contain any data type because the size of array elements are passed as parameters.
